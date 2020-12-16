@@ -1,0 +1,74 @@
+#:import Clipboard kivy.core.clipboard.Clipboard
+
+<DisplayContact>:
+    id: display_contact   
+    FloatLayout:
+        MDLabel:
+            text: "View Contact"
+            pos_hint: {"center_x": 0.3, "center_y": 0.9}
+            theme_text_color: "Primary"
+            halign: "center"
+            font_style: "H4"
+        
+        MDLabel:
+            id: name
+            text: ""
+            halign: 'left'
+            pos_hint: {"center_x": .63, "center_y": .80}
+            
+        
+        MDLabel:
+            id: email
+            text: ""
+            halign: 'left'
+            pos_hint: {"center_x": .63, "center_y": .65}
+
+        MDLabel:
+            id: phone
+            text: ""
+            halign: 'left'
+            pos_hint: {"center_x": .63, "center_y": .50}
+        
+        MDLabel:
+            id: address
+            text: ""
+            halign: 'left'
+            pos_hint: {"center_x": .63, "center_y": .35}
+        
+        MDIconButton:
+            id: name_cpy
+            icon: 'content-copy'
+            on_release:
+                Clipboard.copy(name.text)
+            pos_hint: {"center_x": .73, "center_y": .80}
+
+        MDIconButton:
+            id: email_cpy
+            icon: 'content-copy'
+            on_release:
+                Clipboard.copy(email.text)
+            pos_hint: {"center_x": .73, "center_y": .65}
+
+        MDIconButton:
+            id: phone_cpy
+            icon: 'content-copy'
+            on_release:
+                Clipboard.copy(phone.text)
+            pos_hint: {"center_x": .73, "center_y": .50}
+
+        MDIconButton:
+            id: address_cpy
+            icon: 'content-copy'
+            on_release:
+                Clipboard.copy(address.text)
+            pos_hint: {"center_x": .73, "center_y": .35}
+
+        MDFloatingActionButton:
+            id: go_back_btn
+            icon: 'arrow-left'
+            pos_hint: {"center_x" : .07, "center_y" : .13}
+            md_bg_color: app.theme_cls.primary_color
+            on_press: 
+                root.manager.transition.direction= 'right'
+                root.manager.current = 'mainScreen'
+

@@ -1,0 +1,57 @@
+#:import Window kivy.core.window.Window
+
+<MainScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        FloatLayout:
+            MDLabel:
+                text: 'Contact Book'
+                pos_hint: {"center_x": .33, "center_y": .80}
+                halign: "center"
+                theme_text_color: "Primary"
+                font_style: "H4"
+
+            MDFloatingActionButton:
+                id: edit_contact
+                icon: 'playlist-edit'
+                disabled: True
+                pos_hint: {"center_x" : .90, "center_y" : .80}
+                on_release:
+                    root.manager.transition.direction= 'left'
+                    root.manager.current = 'edit_contact'
+
+            MDFloatingActionButton:
+                id: del_contact
+                icon: 'delete'
+                disabled: True
+                pos_hint: {"center_x" : .80, "center_y" : .80}
+                on_release:
+                    root.deleteContact()
+
+            MDFloatingActionButton:
+                id: view_contact
+                icon: 'account-arrow-right'
+                disabled: True
+                pos_hint: {"center_x" : .70, "center_y" : .80}
+                on_release:
+                    root.manager.transition.direction= 'left'
+                    root.manager.current = 'display_contact'
+
+        ScrollView:
+            do_scroll_x: False
+            height: Window.height
+            MDList:
+                id: container
+
+        FloatLayout:        
+            MDFloatingActionButton:
+                id: new_contact
+                icon: 'plus'
+                pos_hint: {"center_x" : 0.1, "center_y": 0.25}
+                on_press:
+                    root.manager.transition.direction= 'left'
+                    root.manager.current = 'contact'
+      
+        
+    
+        

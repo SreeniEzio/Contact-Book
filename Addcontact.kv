@@ -1,0 +1,63 @@
+<AddContact>:
+    FloatLayout:
+        MDLabel:
+            text: "Add Contact"
+            pos_hint: {"center_x": 0.3, "center_y": 0.9}
+            theme_text_color: "Primary"
+            halign: "center"
+            font_style: "H4"
+        
+        MDFloatingActionButton:
+            id: go_back_btn
+            icon: 'arrow-left'
+            pos_hint: {"center_x" : .07, "center_y" : .13}
+            md_bg_color: app.theme_cls.primary_color
+            on_press: 
+                root.manager.transition.direction= 'right'
+                root.manager.current = 'mainScreen'
+        
+        MDTextField:
+            id: name_field
+            hint_text: "Name"
+            required: True
+            helper_text: "*Required"
+            helper_text_mode: "on_error"
+            on_text: root.check_requirements()
+            pos_hint: {"center_x": .33, "center_y": .80}
+            size_hint: (.5, .1)
+
+        MDTextField:
+            id: email_field
+            hint_text: "E-Mail"
+            pos_hint: {"center_x": .33, "center_y": .65}
+            size_hint: (.5, .1)
+
+        MDTextField:
+            id: phone_field
+            hint_text: "Phone"
+            input_filter: 'int'
+            helper_text: "*Required"
+            helper_text_mode: "on_error"
+            max_text_length: 15
+            on_text: root.check_requirements()
+            required: True
+            pos_hint: {"center_x": .33, "center_y": .50}
+            size_hint: (.5, .1)
+
+        MDTextField:
+            id: address_field
+            hint_text: "Address"
+            multiline: True
+            pos_hint: {"center_x": .33, "center_y": .35}
+            size_hint: (.5, None)
+
+        MDRaisedButton:
+            id: save
+            text: 'Save'
+            disabled: True
+            pos_hint: {"center_x" : .90, "center_y" : .13}
+            on_press: 
+                root.add_contact_backend()
+                root.manager.current = 'mainScreen'
+            md_bg_color: .23, 0.7, 0.35, 1
+            
