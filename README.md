@@ -7,7 +7,7 @@ Extract the folder in the zip file anywhere.
 Go into the Contact-Book folder and open command prompt(Windows) or Terminal(Linux/MACOS) in that location.
 For windows press Shift + Right-Click and "open command window here".
 
-Execute the following commands (requires python and pip):
-pip install requirements.txt
+# Execute the following commands (requires python and pip):
+pip install -r requirements.txt
 python main.py
 
