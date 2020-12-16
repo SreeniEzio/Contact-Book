@@ -43,7 +43,7 @@ class ListItemWithCheckbox(OneLineAvatarIconListItem):
             view_btn.disabled = True
             edit_btn.disabled = True
             del_btn.disabled = True
-            contactID = None
+            contactID.remove(dataObj[self])
 
 class RightCheckbox(IRightBody, MDCheckbox):
     pass
